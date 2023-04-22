@@ -14,6 +14,7 @@ const LS_KEY = 'local_storage_contacts';
 
 export class App extends Component {
   state = {
+    // contacts: [],
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
       { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
@@ -26,7 +27,7 @@ export class App extends Component {
 
   componentDidMount() {
     if (localStorage.getItem(LS_KEY)) {
-      this.setState({ contacts: localStorage.getItem(LS_KEY) });
+      this.setState({ contacts: JSON.parse(localStorage.getItem(LS_KEY)) });
     }
   }
   componentDidUpdate(prevProps, prevState) {
